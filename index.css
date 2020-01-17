@@ -1,0 +1,14 @@
+
+
+h1 {
+    color : royalblue;
+}
+
+.form,
+.greetings {
+    display:none;
+}
+
+.showing {
+    display:block;
+}
