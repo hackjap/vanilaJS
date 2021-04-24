@@ -40,7 +40,26 @@
 
     // switch 
     var d = new  Date();
+    var day = d.getDay();
+    console.log(day);
+    var dayName = "";
     
+    switch (day) {  // 상수 
+        case 0:
+            dayName = "월요일";
+            break;
+        case 1:
+            dayName = "화요일";
+            break;
+        case 2:
+            dayName = "수요일";
+            break;
+        default:
+            dayName="그 밖"; 
+            break;
+    }
+
+    console.log(dayName);
     
 
 
