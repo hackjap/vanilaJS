@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // [ Number ]
+
+        var x = 123;
+
+        // toStirng()
+        console.log(x.toString(2)); // 숫자를 문자열로 변경 
+
+        // toFixed()
+        // 지정된 소수점 자리수까지 반올림으로 표기
+        var x = 9.563243;
+        console.log(x.toFixed(2)); // 지정한 소수점 자리수까지 반올림으로 표기 
+
+        // toPrecision()
+        var x = 9.565;
+        console.log(x.toPrecision(2));  // 정수까지 포함하여 자릿수를 의미
+
+        var x = Number("10");   // 숫자 10 
+        var x = Number(true);   // true 는 1로 변환, false = 0 , 
+        console.log(Number(" 10  ")); // 공백을 무시하고 숫자 값으로 변환 
+        console.log(Number(" 10.33")); // 10.33
+        console.log(Number(" 10,33")); // NaN = Not a Number 
+        console.log(Number(" 10 33")); // NaN
+        
+        // parseInt()
+        console.log(parseInt("3"));
+        console.log(parseInt("3.14")); // 정수형으로 변환 
+        console.log(parseInt(" 10 33")); // 10
+        console.log(parseInt(" 10 years")); // 10
+        console.log(parseInt(" years 10")); // NaN
+
+        //parseFloat()
+        console.log(parseFloat("10")); // 10    
+        console.log(parseFloat("13.9")); // 13.9 -> 소수로 변환 
+        console.log(parseFloat("13.9 aa ")); // 13.9 
+
+
+
+
+
+
+    </script>
+</body>
+</html>
