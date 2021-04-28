@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script>
+        //
+        var d = new Date(); // 현재 날짜 및 시간 
+        console.log(d); // Wed Apr 28 2021 18:51:21 GMT+0900
+
+        //d.setFullYear(2020);
+        
+
+        console.log("timezone",d.getTimezoneOffset()); // 분 단위 
+        // -540 = -9시간 * -1
+        var year = d.getFullYear();
+        var utcYear = d.getUTCFullYear();
+        console.log("year",year);
+
+        var month =  d.getMonth();
+        var utcMonth = d.getUTCMonth();
+        console.log("month",month);
+
+        var date = d.getDate();
+        console.log(date);
+
+        var day = d.getDay();   // 요일
+        console.log(day);   
+        // 일요일 - 0
+        // 월요일 - 1
+        // 화요일 - 2
+
+        // 로컬 pc에 시간을 기준 
+        var hour = d.getHours();
+        var minute = d.getMinutes();
+        var second = d.getSeconds()
+
+        var d = new Date();
+
+        
+
+        // !! 만약에 만드는 서비스가 글로벌 서비스인 경우 
+        // 타임존
+        // 2021.03.30 12:23:33 => 2021.03.30. 03.23:33
+        // 글제목, 작성자, 작성일 : 2021.03.30 12:23:33
+        // 2021.03.30 03:23:33(영국기준)
+
+        // 어떤 사용자가 어떤 국가에서 사용하는지에 따라서 클라이언트 단에서 시간을 변경해줌 
+
+
+
+
+
+        // month 월인경우는 0
+        // day 일자인 경우는 1 
+        var d = new Date(2021,3,27,11,14,23);
+        console.log(d); // Tue Apr 27 2021 11:14:23 GMT+0900
+
+        // 2021-03-21, 2021.03.21 
+        // 월 일 년도 - Mar 21, 2021 ( 서양 )
+        var month_en = ["Jan","Feb","Mar"]; // 글로벌 
+
+        // 3월인경우 - 2가 아니고 3을 준다고 치면,
+        var mon = 3;
+        console.log(month_en[mon-1])        
+        // 따라서 월을 표기하기 위해 월을 0부터 시작하는 것이 편리하다
+
+
+        //https://momentjs.com/ 날짜 시간을 다루는 오픈 소스 라이브러리 - 대부분의 개발자가 사용
+        //https://cdnjs.com/libraries/moment.js - moment.js cdn(외부에서 접근 가능한 주소)
+
+        console.log(moment().format("YYYY-MM-DD")); //2021-04-28
+        console.log(moment().format("MMM DD,YYYY"));  // Apr 28,2021
+
+        console.log(moment().subtract(7,"days").format("YYYY-MM-DD")); // 일주일 전 
+        console.log(moment().add(7,"days").format("YYYY-MM-DD")); // 일주일 후
+        console.log(moment().add(4,"hours").format("YYYY-MM-DD HH")); // 4시간 후
+
+
+    </script>
+</body>
+</html>
