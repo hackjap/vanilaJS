@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x = true;
+        var y = new Boolean(true);
+
+        console.log(x == y); // value 비교 -> true
+        console.log(x === y); // 타입 비교 -> false
+
+        console.log(typeof x);  // boolean
+        console.log(typeof y);  // object
+
+        var x = 0;
+        console.log(Boolean(x));    // false -> 1이 아닌 값은 false
+
+        // boolean 타입을 오브젝트로 만들어 사용할 수 있다.
+        // 따라서 오브젝트의 특성을 가져간다.
+        
+
+
+    </script>
+</body>
+</html>

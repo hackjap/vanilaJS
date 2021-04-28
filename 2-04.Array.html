@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        // toString()
+        var fruits = ["banana","Orange","Apple"];
+        console.log(fruits.toString());
+
+        // join()
+        console.log(fruits.join(" * ")); 
+        var txt = "Banana<br>";
+        txt += "Orange<br>";
+        txt += "Apple<br>";
+
+        var arr = [];
+        arr.push("Banana");
+        arr.push("Orange");
+        arr.push("Apple");
+
+        //document.getElementById("div1").innerHTML = txt;
+        document.getElementById("div1").innerHTML = arr.join("<br>");
+
+        // 배열 형태를 갖고 푸쉬를 이용해서 들어갈 태그를 만들고 
+        // 조인을 이용하여 합쳐서 바로 렌더링 시킬떄 많이 사용함
+
+        // pop()
+        // 배열의 가장 마지막 element를 제거
+        // pop()을 하면, 제거된 element을 리턴 함. 
+        var str = fruits.pop(); // apple
+        console.log(str);
+        console.log(fruits); /// banana,orange
+        
+        // push()
+        // 배열에 마지막에 새 element 추가
+        fruits.push("Kiwi");
+        console.log(fruits);
+        
+        // shift()
+        // 배열의 첫번째 element를 제거함
+        // shift() 리턴으로 제거된 element 반환
+        var str = fruits.shift();
+        console.log(str);
+        console.log(fruits);
+
+        //unshift()
+        //배열의 첫번째에 새 element 추가 
+        fruits.unshift("lemon");
+        console.log(fruits);
+
+       //배열의 특정 인덱스 요소 접근 
+        fruits[0] = "Banana";
+        console.log(fruits);
+
+        fruits[fruits.length-1] = "Lemon"
+        console.log(fruits);
+
+        //splice() - 배열의 중간에 element를 추가할 때 
+        // 첫번째 - 시작위치
+        // 두번째 - 삭제할 element 수
+        // 
+        var fruits = ["banana","Orange","Apple"];
+        fruits.splice(1,1); // 단순히 배열의 요소를 ㅎ삭제하는데도 사용함
+        fruits.splice(1,1,"Lemon","Kiwi");
+        console.log(fruits);
+
+        //concat()
+        var myBoys = ["Seongpil","Junbae"];
+        var myGirls = ["yubi"];
+        var myTeam = myBoys.concat(myGirls);
+        console.log(myTeam);
+
+        // slice() - 배열에서 원하는 요소만 가져올 떄
+        // 첫번쨰 - 시작점
+        // 두번째 - 끝점
+        var fruits2 = fruits.slice(1,2);
+        var fruits2 = fruits.slice(1); // 1번 뺴고 모두
+        console.log(fruits2);
+
+        // sort();
+        console.log(fruits.sort());
+
+        var points = [49,100,45,70,120];
+        //console.log(points.sort()); // 숫자가 아닌 문자열로 인식
+        points.sort(function(a,b){
+            // if(a>b){s
+            //     return 1;
+            // }else if(a<b){
+            //     return -1;
+            // }
+            return b-a;
+        });
+
+        console.log(points);
+
+        // reverse(); 반대로 뒤집힘 
+        points.reverse();
+        console.log(points);
+
+        var persons = [
+            { name:"유재석",points:78,city:"서울"},
+            { name:"김종국",points:92,city:"서울"},
+            { name:"양세찬",points:76,city:"제주"},
+            { name:"하하",points:81,city:"서울"},
+        ];
+        persons.sort(function(a,b){
+            // if(a.points > b.points){
+            //     return 1;
+            // }else if(a.points< b.points){
+            //     return -1;
+            // }else{
+            //     return 0;
+            // }
+
+            return a.points > b.points ? 1 : a.points < b.points ? -1 : 0;  // 실무에서는 이렇게 사용 
+
+        });
+        console.log(persons);
+
+        // filter()
+        // 중요!  조건에 맞는 배열을 리턴 ( 굉장히 유용하고 많이 사용 )
+        var pass = persons.filter(function(person){
+            return person.points > 80;
+        });
+        console.log(pass);
+
+        var jeju = persons.filter(function(person){
+            return person.city =="제주";
+        });
+        console.log(jeju);
+
+        // filter()를 사용하지 않으면 이렇게 반복문을 이용하고 비효율적임
+        var jeju = [];
+        for(var i = 0; i<persons.length;i++){
+            if(persons[i].city == "제주"){
+                jeju.push(persons[i]);
+            }
+        }
+        console.log(jeju);
+
+        // reduce()
+        // 첫번째 파라미터 : accumulator - 누산기 ex) a
+        // 두번째 파라미터 : currentValue - 배열을 읽으면서 현재 값 ex) c 
+        // 세번째 파라미터 : 배열의 인덱스 값 ex) i
+        // 네번쨰 파라미터 : 전체 배열  ex) arr
+        var arr1 = [1,2,3,4];
+        // var total = 0;
+        // for(var x of arr1){
+        //     total += x;
+        // }
+        // console.log(total); // 10 
+
+        //var total = arr1.reduce(function(a,c,i,arr){
+        var total = arr1.reduce(function(a,c){
+            //console.log(i);   // 배열의 인덱스 값 
+            return a+c;
+        });
+        console.log(total);
+
+        // map 
+        // 새로운 배열을 만들어줌 
+        // 내가 필요한 배열의 구조를 만들때 유용하게 사용함 
+        var userList = [
+            {firstName:"재석",lastName:"유", email:"yu@gmail.com"},
+            {firstName:"종국",lastName:"김", email:"kim@gmail.com"},
+            {firstName:"세찬",lastName:"양", email:"yang@gmail.com"},
+            {firstName:"석진",lastName:"지", email:"ji@gmail.com"},
+        ];
+
+        var userList2 = userList.map(function(user){
+            return {fullName:user.lastName + user.firstName,firstName:user.firstName,lastName:user.lastName};
+
+        });
+        console.log(userList2);
+
+
+        // !! filter와 map을 어떻게 사용하느냐에 따라 프로그램을 굉장히 쉽게 짤 수 있다.
+        </script>
+</body>
+</html>
