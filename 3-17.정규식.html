@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 정규표현식 (Regular Expression)
+        // https://www.w3schools.com/jsref/jsref_obj_regexp.asp 참조하여 공부 !!!!!!
+        // 어떠한 문자열이나 패턴에 대해서 
+        // 정교하게 검색하고 싶을 때
+        // modifier
+        // -i : 대소문자 구분, -g : 해당 패턴을 모두 찾음
+        // -m : 멀티라인
+        var patt = /World/ig; // /검색패턴/modifier
+
+        var str = "Hello WoRLd world";
+
+        console.log(str.search("World")); // 6
+
+        console.log(str.search(/world/i))
+
+        console.log(str.replace(patt,"Jeremy"));
+
+        var str = "Is this all there is";
+        var patt2 = /[hat]/g; // [ ] : 해당 문자열을 찾음 
+        var result = str.match(patt2); // match는 정규식을 위한 method
+        console.log(result);
+
+        // [0-9] \d 
+        var str = "123abc4523kkk";
+        var patt1 = /[0-9]/g;
+        var result = str.match(patt1);
+        console.log(result)
+
+        // (a|b)  : a 혹은 b 
+        var str = "re,green,red,gree,gen,red,blue,yellow";
+        var patt1 = /(red|green)/g;
+        var result = str.match(patt1);
+        console.log(result);
+
+        // \d 숫자 = [0-9]
+        var str = "Giv e 100";
+        var patt1 = /\d/g;
+        var result = str.match(patt1);
+        console.log(result);
+
+        // \s 공백
+        var patt1 = /\s/g;
+        var result = str.match(patt1);
+        console.log(result);
+
+        // \b : 시작 문자열을 찾을 때
+        var str = "HELLO, LOOK AT ME!";
+        var patt1 = /\bLO/g;
+        var result = str.search(patt1);
+        console.log(result);
+
+        // + : 최소한 1개 이상
+        var str = "Hellopo";
+        var patt1 = /o+/g;
+        console.log(str.match(patt1))
+
+        // * : 0 or n
+        var str = "Hellooo World";
+        var patt1 = /lo*/g; // o가 0개이거나 n개 
+        console.log(str.match(patt1));  // l, looo, l 
+
+        // ? : 0 or 1개 
+        var str = "1,100 or 1000";
+        var patt1 = /10?/g;
+        console.log(str.match(patt1)); // 1,10,10 
+
+        // 실무에서 정규표현식 
+        // 우편번호 5자리(대한민국)
+        // 32543
+        var patt1 = /^\d{5}&/; // 숫자 5자리 
+        var postalcode = "P23452Z"; // /^&/ 문자열의 시작과 끝 
+        //  test(boolean) :  정규식.test(문자열)
+        console.log(patt1.test(postalcode)); // flase
+
+        // 전화번호
+        // 010-2312-3353
+
+        var patt1 =/^(010)-\d{4}-\d{4}$/;
+        var tel = "011-2312-4442";
+        console.log(patt1.test(tel));
+
+        // 이메일 주소  - 실무에서 무조건 사용
+        // jangsp57@naver.com
+        // jangsp57@gmail.co.kr
+        var patt1 = /^\w+([\.-]?\d+)*@\w+(\.\w{2,3})+/; // \w : 문자 
+        console.log(patt1.test("jangsp57@naver.com"));
+
+        // 이메일 형식, 우편번호, 은행 고유 번호등 다양한 곳에서 문자열을 체크하는데 사용 
+        
+    </script>
+</body>
+</html>
