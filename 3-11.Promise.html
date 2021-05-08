@@ -1,0 +1,61 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        
+        // // Promise - ES6 
+        // // 웹 브라우저에서 서버로 데이터를 불러올 떄 
+        
+        // var x = 1;
+
+        // // 서버 호출해서 데이터를 받아오는 함수.
+        // // y = callServerData();        
+        // var z = x + y ;
+
+     
+        // axios - 오픈소스 라이브러리 
+        
+          var url = "https://ace2e42d-fd1b-492c-b728-3041f50ad527.mock.pstmn.io/list";
+        // var data = axios.get(url).then(function(response){
+        //     console.log(response.data);
+        //     return response.data;
+        // });
+
+        function getData(){
+            //promise
+
+            return new Promise(function(resolve,reject){ // 성공,실패
+                 axios.get(url).then(function(response){
+                 console.log(response.data); //
+                 resolve(response.data);
+                });
+            });
+        }
+
+        var total =0;
+
+        getData().then(function(data){ // resolve에서 넘겨준 것이 data로 넘어옴
+            for(var item of data){
+            total += item.age;
+        }
+             console.log(total);    
+        });
+
+    
+       // 오류 : data is not iterable 
+        // 스크립트 순서대로 실행되는 것이 아니라 밑에부터 실행이 되기 떄문에 오류
+        // 서버로부터 데이터를 호출하는 비동기 통신일 경우 자바스크립트는 기다리지 않고
+        // 다음 코드르 실행하기 떄문에 에러가 나는 것임 
+        // 언제 받아올지 모르니깐 원하는 순서를 도출해내지 못함
+        // 그리하여 Promise가 탄생 
+        
+        // 결국 Promise는 
+        // 서버에서 데이터처리가 완료된 후 코드를 구현할 수 있게 끔 해줌
+    </script>
+</body>
+</html>
