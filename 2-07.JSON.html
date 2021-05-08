@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JSON  : 서버로 부터 웹 페이지로 데이터를 전송할 떄 자주 사용.
+        // 웹페이지에서 서버로 데이터를 전송할 떄도 JSON 포맷 자주 사용.
+        // json - JavaScirpt Object Notaion의 약자 
+        // xml 같은 경우는 순수 데이터외에도 메타정보들이 많아 실제 전송되는 데이터 패킷 사이즈가 크다.
+        // 하지만, json은 가벼워서 웹 개발에 최적화된 포맷이다. 
+        // 
+
+        var data = {
+            "employees":[
+                {"firstName":"John","lastName":"Doe"},
+                {"firstName":"John","lastName":"Doe"},
+                {"firstName":"John","lastName":"Doe"},
+            ]
+        }
+        
+        // json object를 문자열로 변환 
+        //JSON.stringify
+        console.log(data);
+        
+        console.log(JSON.stringify(data));  // object가 아닌 문자열로 변경이됨
+
+        
+        var text = '{"employees":[' +
+                '{"firstName":"John","lastName":"Doe"},'+
+                '{"firstName":"John","lastName":"Doe"},'+
+                '{"firstName":"John","lastName":"Doe"}]}';
+
+        //JSON.parse : 문자열로 변경된 json을 다시 object로 변경
+        var obj = JSON.parse(text);
+        console.log(obj);
+
+    </script>
+</body>
+</html>

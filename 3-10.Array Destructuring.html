@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array Distructuring 
+        function getScores(){
+            return [70,80,90];
+        }
+        // var scores = getScores();
+        // console.log(scores);
+        // console.log(scores[1]);
+
+        // var [x,y,z] = getScores();
+        // console.log(x); //70
+        // console.log(z); //80
+
+        // 실제 실무에서 엄청나게 활용 
+        // 위도,경도 latitude, longitude
+        // 거의 대부분 위,경도를 구해주는 라이브러리는
+        // 결과 값을 배열로 넘겨줌 
+        // Array Distructuring 을 통하여 유용하게 사용 
+        function getLocation(){
+            return [123.12,34.123];
+        };
+        var [latitude,longitude] = getLocation();
+        
+        console.log(latitude,longitude);
+    </script>
+</body>
+</html>

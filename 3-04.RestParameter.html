@@ -1,0 +1,51 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function sum(x1,x2){
+        //     var y = x1 + x2;
+        //     console.log(y);
+            
+        //     return y;
+        // }
+        // sum(5,7); // 12
+
+        // function sum(x1,x2,x3){
+        //     var y = x1 + x2+x3;
+        //     console.log(y);
+            
+        //     return y;
+        // }
+
+        // sum(5,7,3);
+
+        // 다음과 같이 매개변수의 개 수 만큼 다른 함수를 만들어줘야한다.
+        // 하나의 함수의 매개변수를 가변적으로 받고 싶다면??
+        // 바로 "RestParameter"
+
+        function sum(... args){ // parameter를 배열로 받음 
+            var total = 0;
+            // for(var x of args){
+            //     total += x;
+                
+            // }
+
+            args.forEach(function(x,index){ // 배열. forEach 유용 
+                console.log(index);
+                total += x; 
+            });
+            console.log(total);
+            return total;
+        }
+
+        sum(5,7,3,4,3,2);
+        sum(3,3,3,3);
+
+
+
+    </script>
+</body>
+</html>>

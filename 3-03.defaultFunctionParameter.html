@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 자바의 기본생성자 개념인데 파라미터에 적용하는 느낌인듯?
+
+        // function say(message){
+        //     console.log(message);
+        // }
+
+        // function say(message){
+        //     if(message != undefined){
+        //         console.log(message);
+        //     }else{
+        //         console.log("파라미터가 넘어오지 않았어요.");
+        //     }
+        // }
+
+        // < default function parameter >
+        // parameter 값이 넘어오지 않았을 떄 default로 설정되어 있는 값 
+        // ES6 버전부터 추가됨 
+        // 위의 조건문 등을 생략할 수 있어 코드의 효율성이 증가!
+        function say(message="파라미터가 넘어오지 않았어요"){
+            console.log(message);
+        }
+
+        function plus(x,y=1){
+            console.log(x+y);
+        }
+        plus(5); // 5
+        plus(4,2); // 2
+
+        say("안녕하세요"); // 안녕하세요
+        say(); // undefined
+
+        // ES6 - EcmaScript 6버전 - 표준 스크립트 스펙을 관리
+
+        
+    </script>
+</body>
+</html>

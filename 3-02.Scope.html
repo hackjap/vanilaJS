@@ -1,0 +1,45 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // scope는 변수에 대한 접근성을 의미합니다.
+        // 지역변수, 전역변수 느낌 
+
+        // <local scope>
+        function myFunction(){
+            var carName="Hyundai";
+        //     console.log(carName);
+
+        }
+        // // console.log(carName); 레퍼런스 오류 -> carname은 함수의 지역 변수이기때문에 함수에서만 사용이 가능
+
+
+        // myFunction();
+
+       // console.log(carName);
+
+       // < global scope >
+        var carName2 = "KIA";
+
+        // myFunction2();  // 함수가 아무리 밑에라도 함수 먼저 해석을 하고 코드를
+        //                 // 실행시키기 때문에 함수 선언 위에서 호출이 가능하다
+
+        // function myFunction2(){
+        //     console.log(carName2);
+        // }
+
+        // myFunction3();  // 함수를 변수에 담을 시에는 먼저 해석하지 않고
+        //                 // 해당 줄에 순서대로 실행
+
+        // var myFunction3 = function(){
+        //     console.log(carName2);
+        // }
+        
+        // myFunction3();
+
+    </script>
+</body>
+</html>

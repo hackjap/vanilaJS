@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 여기서의 this 는 html element -->
+    <button type="button" onclick="this.style.backgroundColor='red'">클릭</button>
+    <button type="button" onclick="callFunc(this);">클릭2</button>
+    <select onchange="changeSelect(this);">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+
+    </select>
+    <script>
+        // console.log(this); // console.log(window)
+        
+        function fullName(){
+
+        }
+        var person = {
+            firstName : "John",
+            lastName : "Doe",
+            fullName : function(){
+               return  this.firstName + " " + this.lastName;
+            }
+        };
+
+        console.log(person.fullName());
+
+        function myFunction(){
+            console.log(this);  
+
+        }
+
+        myFunction(); // window
+
+        function callFunc(obj){
+            console.log(obj)    // button
+        }
+
+        function changeSelect(obj){
+            console.log(obj.value); // select value
+        }
+
+
+    </script>
+    </body>
+</html>

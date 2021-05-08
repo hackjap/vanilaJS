@@ -1,0 +1,46 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+       
+
+
+        function hello(){
+            console.log("Hello World");
+            return "Hello World";
+        }
+
+        // ArrowFunction
+         // ES6 버젼부터 추가됨 
+         // 실제 굉장히 편리하기 때문에 실제로 많이 사용
+
+        // var hello = function(){
+        //  //   console.log("Hello World");
+        //     return "Hello World";
+        // }
+
+        // // 위의 함수와 동일한 코드
+        // // return 키워드 조차도 생략
+        // var hello = () => "Hello World";
+                    //매개변수 =>  리턴값
+        var hello = (firstName,lastName) =>"Hello " + firstName+ " "+lastName;
+
+        // var hello = fulName => "Hello " + fulName; 파라미터가 한 개일경우, 중괄호도 생략 가능
+        console.log(hello("Jang","Seongpil")); // hello JSP 
+        
+        
+
+
+        // var hello = () => {
+        //     console.log("Hello World");
+        //     return "Hello World";
+        // }
+
+      
+    </script>
+</body>
+</html>

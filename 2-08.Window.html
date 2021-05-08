@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"/>
+    <button type="button">저장</button>
+    <script>
+       // console.log(window);
+
+       // alert("이것은 alert창 입니다.")
+        // alert는 단방향 메시지이지만
+        // 사용자에게 응답을 받고싶을떄는?
+
+        // confirm - 사용자에게 의사를 물어볼 떄
+        // var yn = confirm("정말 삭제하시겠습니까?"); // 취소, 확인 버튼이 존재
+        // console.log(yn);    // true/false(boolean)
+        // // 조건문에 많이 활용 
+        // if(yn){
+        //     // 삭제 실행
+        //     console.log("삭제 실행");
+        // }
+
+        // prompt - 메시지 입력에 많이 사용되지는 않음
+    //     var txt = prompt("비밀번호를 입력하세요"); // input태그로 값을 받아옴
+    //    //console.log(txt);   // 입력문자열 , null 
+    //     if(txt == null){
+
+    //     }else if(txt == ""){    
+
+    //     }else if(txt !=""){ // 프롬프트 창에 무언가 입력하였을때
+    //         console.log(txt);
+    //     }
+
+        //window.open("https://www.naver.com");   //naver를 리다이렉트함
+
+        // window.print(); // 인쇄 창을 띄움 
+        
+        // //setTimout - 
+        // setTimeout(function(){
+        //     console.log("5초후 프로그램 실행");
+        // }, 5000);
+
+        //setInterval
+        var i = 0;
+        var fnc = setInterval(function(){
+            console.log("3초마다 프로그램 실행 - "+i);
+            if(i == 3){
+                clearInterval(fnc); // Interval 프로세스 종료 
+            }
+            i++;
+        }, 3000);
+
+        // clearInterval - 반드시 setTnterval과 같이 사용 
+        // websocket의 개념 
+         
+
+
+    </script>
+</body>
+</html>
