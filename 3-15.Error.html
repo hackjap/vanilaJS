@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 프로그램 개발 도중 예기지 못한 애러가 발생 시 ,
+        // try-catch문을 사용 시 , 최소한 에러 때문에 
+        // 프로세스를 비정상 종료 시키는 일을 방지함
+
+        try{
+            consol.log("logMessage");
+        }catch(err){
+            console.log(err.name);  // ReferenceError
+            console.log(err.message);   // cosol is not defined
+        }
+        console.log("log 정상 메시지"); // 애러시, try-catch 문이 없다면 동작하지 않음
+
+        var x = "";
+        try{    // 애러를 검사하는 블록 
+            if(x == "") throw "empty"; // catch문으로 넘김 
+            
+            var y = x + 3;
+        
+        }catch(err){    // 에러 시 동작하는 블록
+            console.log(`x is ${err}`);
+
+        } finally{  // 마지막에 반드시 실행하는 블록 
+                console.log("try/catch문 이후 제일 마지막에 반드시 실행")
+        }
+        
+    </script>
+</body>
+</html>
