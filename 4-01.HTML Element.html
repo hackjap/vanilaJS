@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    Text:
+    <br>
+    <input type="text" id="text1" value="ABC">
+    <br> 관심사:
+    <br>
+    <label>
+        <input type="checkbox" name="chk_interest" value="it"> IT/컴퓨터</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="entertainment"> 엔터테인먼트</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="sports"> 스포츠</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="shoping"> 쇼핑</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="book"> 도서/책</label>
+    <br> Radio:
+    <br>
+    <label>
+        <input type="radio" name="radio_email_yn" value="Y" checked> 동의</label>
+    <label>
+        <input type="radio" name="radio_email_yn" value="N"> 거부</label>
+    <br> Select:
+    <br>
+    <select id="select1">
+        <option value="KO">Korea</option>
+        <option value="CN">China</option>
+        <option value="JP">Japan</option>
+    </select>
+    <div id="div1"><h1>asdfsdfsdafsad</h1></div>
+    <br>
+    <button type="button" onclick="doSave();">Save</button>
+    <script>
+        document.getElementById("text1").value="asdfsdfds";
+        // JS의 근본 이유는 HTML을 컨트롤하기 위해 만들어짐 
+        function doSave(){
+            // console.log("doSave");
+            // html = document(dom) elment 접근
+            // HTML(doucment) > Element > Attribute
+            var oText1 = document.getElementById("text1");
+            console.log(oText1.value);
+            var textValue = oText1.value;
+
+            // console.log(oText1);
+
+            // // Jquery
+            // var oText2 = document.querySelector("#text1");
+            // console.log(oText2);
+
+            // id 값은 고유 값, name은 중복가능  
+            // element와 elements 주의!
+            // var oCheckBox = document.getElementsByName("chk_interest");
+            // console.log(oCheckBox);
+
+            // for(var i=0;i<oCheckBox.length;i++){
+            //     if(oCheckBox[i].checked){
+            //         console.log(oCheckBox[i].value);
+            //     }
+            // }
+
+            // jQuery의 querySelect는 더 편리하게 ㅠ 엘리먼트 요소에 접근할 수 있음
+            var oCheckBox2 = document.querySelectorAll("[name=chk_interest]:checked");
+            console.log(oCheckBox2);
+
+            // selectorALl : 배열형태, querySelector는 1개의 형태로 리턴 
+            var oRadio = document.querySelector("[name=radio_email_yn]:checked");
+            console.log(oRadio);
+
+            var oSelect = document.querySelector("#select1");
+            // var oSelect = document.getElementById("select1");
+            console.log(oSelect.value);
+
+            console.log(document.getElementById("div1").innerText);
+            console.log(document.getElementById("div1").innerHTML);
+
+            console.log(document.getElementsByTagName("div"));
+
+            // element의 접근 후 attriubte를 수정하거나 생성하거나 접근이 가능 
+            
+        }
+
+
+    </script>
+ 
+</body>
+
+</html>
