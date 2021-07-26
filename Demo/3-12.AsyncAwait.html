@@ -1,0 +1,63 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+          var url = "https://ace2e42d-fd1b-492c-b728-3041f50ad527.mock.pstmn.io/list";
+        // var data = axios.get(url).then(function(response){
+        //     console.log(response.data);
+        //     return response.data;
+        // });
+
+        function getData(){
+            //promise
+
+            return new Promise(function(resolve,reject){ // 성공,실패
+                 axios.get(url).then(function(response){
+                 console.log(response.data); //
+                 resolve(response.data);
+                });
+            });
+        }
+
+        //Async/Await : 비동기 통식을 기다려주는 느낌 
+        // Promise보다 훨씬 코드가 간결하기 떄문에 promise를 대체해서 사용함
+        async function getData2(path){
+            return (await axios.get(path)).data;
+                    // = response.data
+        }
+        async function calculateSum(){
+
+            // async 함수에서만 await가 동작 
+            var data = await getData2(url);
+            var total =0;
+
+            for(var item of data){
+            total += item.age;
+        }
+        console.log(total);
+        }
+
+        calculateSum();
+        // 실제론 하나하나를 전부 함수로 구현하기떄문에
+        // async await를 활용 
+
+
+        // var total =0;
+
+        // getData().then(function(data){ // resolve에서 넘겨준 것이 data로 넘어옴
+        //     for(var item of data){
+        //     total += item.age;
+        // }
+        //      console.log(total);    
+        // });
+
+    
+
+    </script>
+</body>
+</html>
